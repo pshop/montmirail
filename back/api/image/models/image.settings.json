@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "images",
+  "info": {
+    "name": "image"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "file": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "season": {
+      "type": "enumeration",
+      "enum": [
+        "none",
+        "summer",
+        "winter",
+        "autumn",
+        "spring"
+      ]
+    },
+    "home_page": {
+      "type": "boolean"
+    },
+    "category": {
+      "type": "enumeration",
+      "enum": [
+        "presentation",
+        "fruits_verger",
+        "fruits_products",
+        "natura_beef",
+        "miel",
+        "biodiversity"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    }
+  }
+}
