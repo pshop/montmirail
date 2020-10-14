@@ -1,0 +1,80 @@
+.border{
+    margin:0;
+    width: 100%;
+    height: 100vh;
+    box-sizing: border-box;
+    padding: 30px;
+    overflow: hidden;
+    background-size: cover;
+}
+
+.border .content{
+    height: 100%;
+    width:100%;
+    background-color: white;
+    overflow: scroll;
+    display: flex;
+    flex-direction: row;
+}
+
+.textContent{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width:200%;
+}
+
+.textContent footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+.textContent header, .textContent footer{
+    padding: 20px 0px 20px 0px;
+    text-align: center;
+    font-weight: bolder;
+    background-color: white;
+}
+
+.textContent section{
+    height: 100%;
+    font-size: 35px;
+    line-height: normal;
+    margin: 0px 40px 0 40px;
+    padding-top: 40px;
+}
+
+.textContent ul{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 25px;
+}
+
+.textContent li{
+    cursor: pointer;
+}
+
+.textContent a {
+    text-decoration: none;
+    color: black;
+}
+
+.description{
+    overflow: scroll;
+}
+
+.diaporama{
+    width: 100%;
+    overflow: hidden;
+}
+
+.diaporama img{
+    width: 100%;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}

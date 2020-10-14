@@ -6,39 +6,39 @@
 require("dotenv").config()
 
 module.exports = {
-    /* Your site config here */
-    plugins: [
-        `gatsby-transformer-sharp`,
-        `gatsby-plugin-sharp`,
-        {
-            resolve: 'gatsby-source-filesystem',
-            options: {
-                name: 'images',
-                path: `${__dirname}/src/images`,
-            }
+  /* Your site config here */
+  plugins: [
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'images',
+        path: `${__dirname}/src/images`,
+      }
+    },
+    {
+      resolve: `gatsby-source-strapi`,
+      options: {
+        apiURL: `http://localhost:1337`,
+        queryLimit: 1000, // Default to 100
+        contentTypes: [`image`, `section`],
+        //If using single types place them in this array.
+        singleTypes: [],
+        // Possibility to login with a strapi user, when content types are not publically available (optional).
+        loginData: {
+          identifier: "",
+          password: "",
         },
-        {
-            resolve: `gatsby-source-strapi`,
-            options: {
-                apiURL: `http://localhost:1337`,
-                queryLimit: 1000, // Default to 100
-                contentTypes: [`image`],
-                //If using single types place them in this array.
-                singleTypes: [],
-                // Possibility to login with a strapi user, when content types are not publically available (optional).
-                loginData: {
-                    identifier: "",
-                    password: "",
-                },
-            },
+      },
+    },
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        typekit: {
+          id: process.env.TYPEKIT_ID,
         },
-        {
-            resolve: "gatsby-plugin-web-font-loader",
-            options: {
-                typekit: {
-                    id: process.env.TYPEKIT_ID,
-                },
-            },
-        },
-    ],
+      },
+    },
+  ],
 }
