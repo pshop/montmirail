@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sections",
+  "info": {
+    "name": "section"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "nom": {
+      "type": "string",
+      "required": true
+    },
+    "images": {
+      "collection": "image",
+      "via": "section"
+    },
+    "description": {
+      "type": "richtext"
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import React from "react"
 import {graphql} from "gatsby";
 import styles from './infos.module.css'
+import anime from 'animejs/lib/anime.es.js';
 
 export default function Infos({data}) {
 
@@ -8,8 +9,21 @@ export default function Infos({data}) {
   const sectionsTextContent = data.allStrapiSection.nodes
 
   const scrollToText = (e) => {
-    e.preventDefault()
-    const sectionTo = document.getElementsByClassName(e.target.className)
+
+    let sectionTo = document.querySelector('section.'+e.target.className)
+    let sectionTop = sectionTo.getClientRects()[0].top
+    let navBottom = document.querySelector('nav').getClientRects()[0].bottom
+    let description = document.querySelector('.description')
+    let descriptionTop = description.scrollTop
+
+    let scrollValue = sectionTop - navBottom + descriptionTop
+
+    anime({
+      targets: description,
+      scrollTop: scrollValue,
+      duration:1000,
+      easing: 'linear'
+    })
   }
 
   return (
@@ -29,7 +43,7 @@ export default function Infos({data}) {
             </ul>
           </nav>
 
-          <div className={styles.description}>
+          <div className={`description ${styles.description}`} >
           {sectionsTextContent.map((section)=>(
             <section key={section.id} className={section.id}>
               {section.description}
