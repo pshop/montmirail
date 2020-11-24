@@ -1,44 +1,26 @@
 import React from "react"
 import {graphql, navigate} from "gatsby"
+import Img from "gatsby-image"
 import styles from "./index.module.css"
-import anime from 'animejs/lib/anime.es.js'
 
 export default function Home({data}) {
+  console.log(data)
   const background = data.allStrapiImage.edges[0].node.file.publicURL
-  const borderImage = data.allFile.edges[0].node.publicURL
+  const borderImage = data.allStrapiImage.edges[1].node.file.publicURL
 
-  const getAnime = (exit, node) => {
+  const AnimTransition = (event) => {
 
-  }
+    const body = document.querySelector('body')
+    const textHome = document.querySelector(`.${styles.textHome}`)
+    const titre = document.querySelector(`.${styles.titre}`)
+    let titreclone = document.querySelector(`.${styles.clone}`)
 
-  const sayHello = (e) => {
 
-    console.log(e)
+    body.classList.toggle(styles.anime)
 
-    anime({
-      targets: `.${styles.border}`,
-      width: '100%',
-      height: '100%',
-      duration: 1000,
-      easing: 'linear'
-    })
-    anime({
-      targets: `.${styles.textHome}`,
-      width:'100%',
-      height:'100%',
-      margin: '30px',
-      duration: 1000,
-      easing: 'linear'
-    })
-
-    anime({
-      targets:`h1`,
-      opacity:0,
-      duration:1000,
-      easing:'linear'
-    })
-
-    setTimeout(()=>{navigate("/infos/")}, 1200)
+    setTimeout(() => {
+      navigate("/infos/")
+    }, 1000)
 
 
   }
@@ -48,43 +30,42 @@ export default function Home({data}) {
       <div
         className={styles.border}
         style={{backgroundImage: `url(${borderImage})`}}
-        onClick={sayHello}
+        onClick={AnimTransition}
       >
+
         <div className={styles.textHome}>
-          <h1>
+
+          <h1 className={styles.titre}>
             Martin+Angela Ott<br/>
             Montmirail 2<br/>
             CH-2075 Thielle
           </h1>
-          <p>
-            PRODUITS DE LA FERME DE MONTMIRAIL<br/>
-            VENTE DIRECTE SUR RENDEZ-VOUS 079 692 15 18
-          </p>
+          <div className={styles.contact}>
+            <div className={styles.topText}>PRODUITS DE LA FERME DE MONTMIRAIL<br/></div>
+            <div className={styles.bottomText}>VENTE DIRECTE SUR RENDEZ-VOUS 079 692 15 18</div>
+          </div>
+
         </div>
+
+        <div className={styles.diaporama}>
+        </div>
+
       </div>
     </div>
   );
 }
 
 export const query = graphql`
-    query{
-        allStrapiImage {
+    query
+    {
+        allStrapiImage(filter: {accueil: {ne: "non"}}) {
             edges {
                 node {
                     id
                     file {
-                        id
                         publicURL
                     }
-                    category
-                }
-            }
-        },
-        allFile(filter: {sourceInstanceName: {eq: "images"}, name: {eq: "darktheme"}}) {
-            edges {
-                node {
-                    id
-                    publicURL
+                    accueil
                 }
             }
         }

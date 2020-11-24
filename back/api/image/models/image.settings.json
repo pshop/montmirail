@@ -30,9 +30,6 @@
         "spring"
       ]
     },
-    "home_page": {
-      "type": "boolean"
-    },
     "category": {
       "type": "enumeration",
       "enum": [
@@ -51,8 +48,17 @@
       "type": "string"
     },
     "section": {
-      "via": "images",
-      "model": "section"
+      "model": "section",
+      "via": "images"
+    },
+    "accueil": {
+      "type": "enumeration",
+      "enum": [
+        "non",
+        "fond",
+        "bordure"
+      ],
+      "default": "non"
     }
   }
 }

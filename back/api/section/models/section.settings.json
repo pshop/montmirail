@@ -14,8 +14,8 @@
       "required": true
     },
     "images": {
-      "collection": "image",
-      "via": "section"
+      "via": "section",
+      "collection": "image"
     },
     "description": {
       "type": "richtext"
