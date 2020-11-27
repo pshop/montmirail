@@ -1,7 +1,12 @@
+.resizeAnimationStopper.background {
+    transition: none !important;
+    animation: none !important;
+}
+
 .background {
     background: no-repeat;
-    background-size: cover;
-    height: 100%;
+    object-fit: cover;
+    height: 100vh;
     width: 100%;
     position: fixed;
     right: 0;
@@ -54,8 +59,8 @@
     height: 427px;
     margin: 0;
     padding: 30px;
-    position: fixed;
-    top: 50%;
+    position: absolute;
+    top:0;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -152,3 +157,4 @@
 .anime .titre {
     user-select: none;
 }
+
