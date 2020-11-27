@@ -8,10 +8,9 @@ export default function Home({data}) {
   const AnimTransition = (event) => {
 
     const body = document.querySelector('body')
-
     body.classList.toggle(styles.anime)
-
-    //setTimeout(() => {navigate("/infos/")}, 1000)
+    console.log("Anime")
+    // setTimeout(() => {navigate("/infos/")}, 1000)
   }
   let resizeTimer;
   window.addEventListener("resize", () => {
@@ -22,16 +21,14 @@ export default function Home({data}) {
     }, 400);
   });
   return (
-    <div>
+    <div onClick={AnimTransition}>
       <Img
         fluid={data.allStrapiImage.nodes[0].file.childImageSharp.fluid}
         className={styles.background}
       />
       <div className={styles.border}>
-
         <Img
-          fixed={data.allStrapiImage.nodes[1].file.childImageSharp.fixed}
-          onClick={AnimTransition}
+          fluid={data.allStrapiImage.nodes[1].file.childImageSharp.fluid}
         />
       </div>
       <div className={styles.textHome}>
@@ -40,11 +37,9 @@ export default function Home({data}) {
           Montmirail 2<br/>
           CH-2075 Thielle
         </h1>
-        <div className={styles.contact}>
-          <div className={styles.topText}>PRODUITS DE LA FERME DE MONTMIRAIL<br/></div>
-          <div className={styles.bottomText}>VENTE DIRECTE SUR RENDEZ-VOUS 079 692 15 18</div>
-        </div>
       </div>
+      <div className={styles.topText}>PRODUITS DE LA FERME DE MONTMIRAIL<br/></div>
+      <div className={styles.bottomText}>VENTE DIRECTE SUR RENDEZ-VOUS 079 692 15 18</div>
       <div className={styles.diaporama}>
       </div>
     </div>
