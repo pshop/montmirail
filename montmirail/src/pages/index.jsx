@@ -8,17 +8,20 @@ export default function Home({data}) {
   const AnimTransition = (event) => {
 
     const body = document.querySelector('body')
-    body.classList.toggle(styles.anime)
+    body.classList.add(styles.anime)
     console.log("Anime")
-    // setTimeout(() => {navigate("/infos/")}, 1000)
+    setTimeout(() => {navigate("/infos/")}, 1000)
   }
   let resizeTimer;
   window.addEventListener("resize", () => {
-    document.querySelector(`.${styles.background}`).classList.add(styles.resizeAnimationStopper)
-    clearTimeout(resizeTimer);
+    let bckgrnd = document.querySelector(`.${styles.background}`)
+      if (bckgrnd instanceof HTMLElement){
+        bckgrnd.classList.add(styles.resizeAnimationStopper)
+        clearTimeout(resizeTimer);
     resizeTimer = setTimeout(() => {
       document.querySelector(`.${styles.background}`).classList.remove(styles.resizeAnimationStopper);
     }, 400);
+      }
   });
   return (
     <div onClick={AnimTransition}>
@@ -56,9 +59,6 @@ export const query = graphql`
                     childImageSharp {
                         fluid(maxWidth:1920) {
                             ...GatsbyImageSharpFluid
-                        }
-                        fixed(width:750){
-                            ...GatsbyImageSharpFixed
                         }
                     }
                 }

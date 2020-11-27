@@ -11,7 +11,7 @@
     position: fixed !important;
     right: 0;
     top: 0;
-    transition: all 1s linear;
+    transition: all 1s ease-in-out;
 }
 
 .anime .background {
@@ -29,7 +29,7 @@
     left: 50%;
     top: calc(50% + (347px/2) - 32px);
     transform: translate(-50%, -100%);
-    transition: all 1s linear;
+    transition: all 1s ease-in-out;
     padding: 20px 0 20px 0;
 }
 
@@ -48,7 +48,7 @@
     left: 50%;
     bottom: calc(50% - (347px/2));
     transform: translate(-50%, 0);
-    transition: all 1s linear;
+    transition: all 1s ease-in-out;
 }
 
 .anime .bottomText {
@@ -77,7 +77,7 @@
     box-sizing: border-box;
     cursor: pointer;
     /*todo prefix*/
-    transition: width 1s linear, height 1s linear;
+    transition: width 1s ease-in-out, height 1s ease-in-out;
 }
 
 .border>div{
@@ -108,7 +108,7 @@
     left: 50%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-    transition: width 1s linear, height 1s linear;
+    transition: width 1s ease-in-out, height 1s ease-in-out;
 
 }
 
@@ -117,7 +117,7 @@
     font-size: 51px;
     line-height: 50px;
     font-weight: normal;
-    transition: all 200ms linear;
+    transition: all 200ms ease-in-out;
     width: 100%;
     position: fixed;
     top: 50%;

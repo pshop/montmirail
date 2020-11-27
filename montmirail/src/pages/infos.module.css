@@ -1,26 +1,36 @@
 .border {
     margin: 0;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     box-sizing: border-box;
-    padding: 30px;
     overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
     background-size: cover;
 }
 
-.border .content {
+.border>div{
+    width: 100%;
+    height: 100%;
+}
+
+.content {
     height: 100%;
     width: 100%;
-    background-color: white;
     overflow: scroll;
     display: flex;
     flex-direction: row;
+    position: fixed;
+    padding: 30px;
+    box-sizing: border-box;
 }
 
 .textContent {
     position: relative;
     display: flex;
     flex-direction: column;
+    background: white;
     box-sizing: border-box;
     width: 1080px;
     padding-left: 90px;
@@ -74,14 +84,29 @@
     width: 100%;
     overflow: scroll;
     flex-shrink: 1;
+    background-color: white;
 }
 
-.diaporama img {
-    height: 50%;
+.diaporama > div {
+    height: 40%;
     width: 100%;
 
 }
 
 ::-webkit-scrollbar {
     display: none;
+}
+
+.fadeIn{
+    opacity: 1;
+    animation: fadeInAnime 500ms;
+}
+
+@keyframes fadeInAnime {
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
 }
