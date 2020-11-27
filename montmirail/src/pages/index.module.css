@@ -8,14 +8,15 @@
     object-fit: cover;
     height: 100vh;
     width: 100%;
-    position: fixed;
+    position: fixed !important;
     right: 0;
+    top: 0;
     transition: all 1s linear;
 }
 
 .anime .background {
-    height: 200px;
-    width: 200px;
+    height: calc((100% - 60px) * 0.4 );
+    width: calc(100% - 1080px - 60px );
     right: 30px;
     top:30px;
 }
